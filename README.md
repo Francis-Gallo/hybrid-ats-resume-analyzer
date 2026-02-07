@@ -1,6 +1,5 @@
-project:
-  name: Hybrid ATS Resume Analyzer
-  description: >
+ Hybrid ATS Resume Analyzer
+  description: 
     A production-grade Applicant Tracking System (ATS) that evaluates resumes
     using semantic similarity, section-wise analysis, and local LLM feedback.
     Fully offline, privacy-safe, and OpenAI-compatible via LM Studio.
