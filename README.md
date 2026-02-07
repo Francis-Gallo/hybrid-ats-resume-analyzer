@@ -1,5 +1,8 @@
- Hybrid ATS Resume Analyzer
-  description: 
+
+```yaml
+project:
+  name: Hybrid ATS Resume Analyzer
+  description: >
     A production-grade Applicant Tracking System (ATS) that evaluates resumes
     using semantic similarity, section-wise analysis, and local LLM feedback.
     Fully offline, privacy-safe, and OpenAI-compatible via LM Studio.
@@ -39,29 +42,34 @@ technologies:
 
 scoring_logic:
   description: Weighted section-wise semantic similarity
-  formula:
+  weights:
     skills: 0.40
     experience: 0.35
     projects: 0.25
 
 setup:
   steps:
-    - Clone repository:
-        command: git clone https://github.com/Francis-Gallo/hybrid-ats-resume-analyzer.git
-    - Create virtual environment:
-        command: python -m venv venv
-    - Activate virtual environment:
-        windows: venv\\Scripts\\activate
-    - Install dependencies:
-        command: pip install -r requirements.txt
-    - Start LM Studio:
-        requirements:
-          - Enable OpenAI-compatible server
-          - Load embedding model: text-embedding-nomic-embed-text-v1.5
-          - Load LLM model: phi-3.1-mini-4k-instruct
-    - Run application:
-        command: python app/app.py
-        url: http://127.0.0.1:5000
+    - name: Clone repository
+      command: git clone https://github.com/Francis-Gallo/hybrid-ats-resume-analyzer.git
+
+    - name: Create virtual environment
+      command: python -m venv venv
+
+    - name: Activate virtual environment (Windows)
+      command: venv\Scripts\activate
+
+    - name: Install dependencies
+      command: pip install -r requirements.txt
+
+    - name: Start LM Studio
+      requirements:
+        - Enable OpenAI-compatible server
+        - Load embedding model: text-embedding-nomic-embed-text-v1.5
+        - Load LLM model: phi-3.1-mini-4k-instruct
+
+    - name: Run application
+      command: python app/app.py
+      url: http://127.0.0.1:5000
 
 output:
   - Section-wise semantic match scores
